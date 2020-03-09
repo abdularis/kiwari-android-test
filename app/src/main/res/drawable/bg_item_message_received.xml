@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="@color/colorPrimary"/>
+    <corners
+        android:topRightRadius="@dimen/item_message_roundness"
+        android:bottomLeftRadius="@dimen/item_message_roundness"
+        android:bottomRightRadius="@dimen/item_message_roundness"/>
+</shape>
