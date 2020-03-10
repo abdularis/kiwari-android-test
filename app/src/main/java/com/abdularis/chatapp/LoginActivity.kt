@@ -12,13 +12,14 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var sessionManager: SessionManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
         sessionManager = SessionManager(this)
         if (sessionManager.isLogin) {
             goToChatRoom()
             return
         }
 
-        super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
         btnLogin.setOnClickListener { onLoginButtonClick() }

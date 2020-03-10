@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "834611742066",
+    "firebase_url": "https://chatapp-7757b.firebaseio.com",
+    "project_id": "chatapp-7757b",
+    "storage_bucket": "chatapp-7757b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:834611742066:android:458c2045928412990ac9eb",
+        "android_client_info": {
+          "package_name": "com.abdularis.chatapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "834611742066-j1joruim1plh7mgeplbufb44hdv9a3bv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCtGuHnlw4ud-McgDuCN3rNwoe6htWqE2c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "834611742066-j1joruim1plh7mgeplbufb44hdv9a3bv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
