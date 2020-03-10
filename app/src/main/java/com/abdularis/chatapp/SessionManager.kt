@@ -11,4 +11,16 @@ class SessionManager(context: Context) {
         set(value) {
             prefs.edit().putBoolean("is_login", value).apply()
         }
+
+    var email: String
+        get() = prefs.getString("email", "") ?: ""
+        set(value) {
+            prefs.edit().putString("email", value).apply()
+        }
+
+    var avatar: String
+        get() = prefs.getString("avatar", "") ?: ""
+        set(value) {
+            prefs.edit().putString("avatar", value).apply()
+        }
 }

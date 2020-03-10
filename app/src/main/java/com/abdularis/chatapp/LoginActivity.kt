@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
 import android.widget.Toast
+import com.abdularis.chatapp.chatroom.ChatRoomActivity
 import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : AppCompatActivity() {
@@ -45,6 +46,8 @@ class LoginActivity : AppCompatActivity() {
         for (userData in USER_DATA_LIST) {
             if (email == userData.email && password == userData.password) {
                 sessionManager.isLogin = true
+                sessionManager.email = userData.email
+                sessionManager.avatar = userData.avatar
                 goToChatRoom()
                 return
             }
