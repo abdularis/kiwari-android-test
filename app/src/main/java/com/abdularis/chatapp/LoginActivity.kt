@@ -46,6 +46,7 @@ class LoginActivity : AppCompatActivity() {
         for (userData in USER_DATA_LIST) {
             if (email == userData.email && password == userData.password) {
                 sessionManager.isLogin = true
+                sessionManager.name = userData.name
                 sessionManager.email = userData.email
                 sessionManager.avatar = userData.avatar
                 goToChatRoom()

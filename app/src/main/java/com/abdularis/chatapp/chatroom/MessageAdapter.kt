@@ -66,7 +66,7 @@ class MessageReceivedViewHolder(itemView: View): MessageViewHolder(itemView) {
         message.text = msg.text
         textDate.text = formatTimestamp(msg.timestamp)
         Glide.with(itemView)
-            .load("https://api.adorable.io/avatars/160/jarjit@mail.com.png")
+            .load(msg.user.avatar)
             .into(avatar)
     }
 }
@@ -76,7 +76,7 @@ class MessageSentViewHolder(itemView: View): MessageViewHolder(itemView) {
         message.text = msg.text
         textDate.text = formatTimestamp(msg.timestamp)
         Glide.with(itemView)
-            .load("https://api.adorable.io/avatars/160/jarjit@mail.com.png")
+            .load(msg.user.avatar)
             .into(avatar)
     }
 }

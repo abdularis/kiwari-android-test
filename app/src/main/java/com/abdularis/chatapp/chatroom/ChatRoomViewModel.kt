@@ -4,9 +4,7 @@ import android.app.Application
 import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
-import com.abdularis.chatapp.Message
-import com.abdularis.chatapp.MessageData
-import com.abdularis.chatapp.SessionManager
+import com.abdularis.chatapp.*
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
 
@@ -16,8 +14,20 @@ class ChatRoomViewModel(application: Application) : AndroidViewModel(application
         private const val ROOM_NAME = "room1"
     }
 
+    val userMe: UserData
+    val receiverUser: UserData
     private val sessionManager: SessionManager = SessionManager(application)
     private val db: FirebaseFirestore = FirebaseFirestore.getInstance()
+
+    init {
+        receiverUser = if (sessionManager.email == USER_JARJIT.email) USER_MAIL else USER_JARJIT
+        userMe = UserData(
+            name = sessionManager.name,
+            avatar = sessionManager.avatar,
+            email = sessionManager.email,
+            password = ""
+        )
+    }
 
     val onMessagesLoaded = MutableLiveData<List<Message>>()
 
@@ -52,15 +62,19 @@ class ChatRoomViewModel(application: Application) : AndroidViewModel(application
             .addSnapshotListener { querySnapshot, firebaseFirestoreException ->
                 val messages = querySnapshot?.documents?.map {
                     val data = it.toObject(MessageData::class.java)
-                    if (data == null)
+                    if (data == null) {
                         null
-                    else
+                    }
+                    else {
+                        val isSent = data.sender == sessionManager.email
                         Message(
                             text = data.text,
                             timestamp = data.timestamp,
                             senderEmail = data.sender,
-                            isSent = data.sender == sessionManager.email
+                            isSent = isSent,
+                            user = if (isSent) userMe else receiverUser
                         )
+                    }
                 }?.filterNotNull()
 
                 messages?.let {

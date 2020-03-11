@@ -4,7 +4,8 @@ data class Message (
     val text: String,
     val timestamp: Long,
     val senderEmail: String,
-    val isSent: Boolean
+    val isSent: Boolean,
+    val user: UserData
 )
 
 data class MessageData(

@@ -12,7 +12,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.abdularis.chatapp.LoginActivity
 import com.abdularis.chatapp.Message
 import com.abdularis.chatapp.R
+import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.activity_chat_room.*
+import kotlinx.android.synthetic.main.toolbar_chat_room.*
 
 class ChatRoomActivity : AppCompatActivity() {
 
@@ -23,6 +25,8 @@ class ChatRoomActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_chat_room)
 
+        setSupportActionBar(toolbar)
+
         adapter = MessageAdapter()
 
         viewModel = ViewModelProviders.of(this).get(ChatRoomViewModel::class.java)
@@ -31,11 +35,19 @@ class ChatRoomActivity : AppCompatActivity() {
         })
         viewModel.loadMessageData()
 
+        initViews()
+    }
+
+    private fun initViews() {
         recyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, true)
         recyclerView.adapter = adapter
         btnSend.setOnClickListener {
             sendMessage()
         }
+        nameToolbar.text = viewModel.receiverUser.name
+        Glide.with(this)
+            .load(viewModel.receiverUser.avatar)
+            .into(avatarToolbar)
     }
 
     private fun sendMessage() {
