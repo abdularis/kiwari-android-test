@@ -1,5 +1,6 @@
-Chat App
+## Chat App
 
+Simple chat application using firebase firestore as real-time database.
 has two hardcoded user:
 
 - Jarjit Singh
@@ -11,8 +12,8 @@ has two hardcoded user:
 
 
 
-Screenshot
+### Screenshot
 
-![login](C:\Users\arisr\Projects\ChatApp\images\login.png)
+![login](images\login.png)
 
-![chatroom](C:\Users\arisr\Projects\ChatApp\images\chatroom.png)
+![chatroom](images\chatroom.png)
