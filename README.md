@@ -14,6 +14,6 @@ has two hardcoded user:
 
 ### Screenshot
 
-![login](images\login.png)
+![login](/images/login.png)
 
-![chatroom](images\chatroom.png)
+![chatroom](/images/chatroom.png)
